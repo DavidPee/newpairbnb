@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get "auth/:provider/callback" => "sessions#create_from_omniauth"
+  root 'listing#index'
+  
+  resources :listings
+
   # get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -20,7 +24,6 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'users#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
