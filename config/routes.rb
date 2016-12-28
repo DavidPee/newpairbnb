@@ -13,10 +13,13 @@ Rails.application.routes.draw do
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get "auth/:provider/callback" => "sessions#create_from_omniauth"
-  root 'listing#index'
+  root 'listings#index'
   
-  resources :listings
+  resources :listings do
+    resources :bookings, only: [:create]
+  end
 
+  resources :bookings, only: [:destroy]
   # get 'welcome/index'
 
   # The priority is based upon order of creation: first created -> highest priority.

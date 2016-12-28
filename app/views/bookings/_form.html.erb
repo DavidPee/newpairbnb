@@ -1,0 +1,21 @@
+<%=form_for [@listing, @booking] do |f| %>
+
+	<div>
+		<%= f.label :num_guests %>
+		<%= f.number_field :num_guests %>
+	</div>
+
+	<div>
+		<%= f.label :start_date %>
+		<%= f.date_select :start_date %>
+	</div>
+
+	<div>
+		<%= f.label :end_date %>
+		<%= f.date_select :end_date %>
+	</div>
+
+	<div>
+		<%= f.submit "Submit Booking" %>
+	</div>
+<% end %>
