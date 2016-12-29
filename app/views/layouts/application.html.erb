@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>NewPairBnB</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
 </head>
@@ -19,6 +21,8 @@
     <% end %>
   </div>
 
-  <%= yield %>
+  <%= render "layouts/navbar" %>
+  
+    <%= yield %>
 </body>
 </html>
