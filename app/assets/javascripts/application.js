@@ -15,5 +15,5 @@
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
-//= require jscontact_me
-//= require js/jqBootstrapValidation
+//= require contact_me
+//= require jqBootstrapValidation
