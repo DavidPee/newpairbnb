@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   		u.username = auth_hash["info"]["name"]
   		u.name = auth_hash["info"]["name"]
   		u.email = auth_hash["extra"]["raw_info"]["email"]
+      # u.avatar = auth_hash["extra"]["profile_picture"]
   		u.authentications<<(authentication)
   	end
   end
