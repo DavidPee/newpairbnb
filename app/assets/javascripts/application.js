@@ -16,4 +16,5 @@
 //= require bootstrap-sprockets
 //= require contact_me
 //= require jqBootstrapValidation
+//= require filterrific/filterrific-jquery
 //= require_tree .
