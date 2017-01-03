@@ -32,6 +32,7 @@ gem 'omniauth'
 
 gem 'omniauth-facebook'
 gem "font-awesome-rails"
+gem 'country_select'
 
 gem 'faker'
 

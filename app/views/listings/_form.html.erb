@@ -12,6 +12,12 @@
 	<br>
 
 	<div>
+		<%= f.label :country_code %>
+		<%= f.country_select :country_code, {selected: "SG"},class: "form-control" %>
+	</div>
+	<br>
+	
+	<div>
 		<%= f.label :max_guests %>
 		<%= f.number_field :max_guests, class: "form-control" %>
 	</div>
@@ -20,6 +26,12 @@
 	<div>
 		<%= f.label :price %>
 		<%= f.number_field :price, class: "form-control" %>
+	</div>
+	<br>
+
+	<div>
+		<%= f.label :tag_ids %>
+		<%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
 	</div>
 	<br>
 
