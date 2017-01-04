@@ -30,7 +30,6 @@
 	<br>
 
 	<div>
-		<%= f.label :tag_ids %>
 		<%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
 	</div>
 	<br>
