@@ -37,7 +37,7 @@ gem 'filterrific'
 
 gem 'faker'
 
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
 
 # Use ActiveModel has_secure_password

@@ -36,7 +36,6 @@ class Listing < ActiveRecord::Base
 	    *terms.map { |e| [e] * num_or_conds }.flatten
 	  )
 	}
-	  }
 
   scope :sorted_by, lambda { |sort_key|
 	  direction = (sort_key =~ /desc$/) ? 'desc' : 'asc'
