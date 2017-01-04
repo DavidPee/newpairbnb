@@ -1,11 +1,4 @@
   <%= link_to "Create New Listing", new_listing_path %>
-<table>
-	<% @listings.each do |listing| %>
-		<tr> 
-			<td><%= link_to listing.title, listing %></td>	
-		</tr>
-	<% end %>
-</table>
 
 <div class="container">
   <!-- Page Heading/Breadcrumbs -->
@@ -17,7 +10,7 @@
       <ol class="breadcrumb">
         <li><%= link_to "Home", root_path %></li>
         <li class="active">Browse Listings</li>
-   		</ol>
+      </ol>
     </div>
   </div>
     <%= render "listings/filterrific_form" %>

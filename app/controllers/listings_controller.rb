@@ -6,12 +6,12 @@ class ListingsController < ApplicationController
       params[:filterrific],
       select_options: {
         sorted_by: Listing.options_for_sorted_by,
-        with_country_id: Listing.countries_with_listings
+        with_country_id: Listing.countries_with_listings,
         with_tag_ids: Tag.options_for_select
-        },
+        }
     ) or return
 
-     @listingz = @filterrific.find
+     @listings = @filterrific.find
       respond_to do |format|
       format.html
       format.js
