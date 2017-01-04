@@ -14,7 +14,7 @@ class Listing < ActiveRecord::Base
     ]
   )
 
-   scope :search_query, lambda { |query|
+	scope :search_query, lambda { |query|
 	  return nil  if query.blank?
 
 	  # condition query, parse into individual keywords
@@ -24,19 +24,18 @@ class Listing < ActiveRecord::Base
 	  # append '%', remove duplicate '%'s
 	  terms = terms.map { |e|
 	    "%" + (e.gsub('*', '%') + '%').gsub(/%+/, '%')
-	  }
+		}
 	  # configure number of OR conditions for provision
 	  # of interpolation arguments. Adjust this if you
 	  # change the number of OR conditions.
 	  num_or_conds = 2
 	  where(
 	    terms.map { |term|
-	      "(LOWER(listings.title) LIKE ? OR LOWER(listings.descriptions) LIKE ?)"
+	      "(LOWER(listinsgs.title) LIKE ? OR LOWER(listings.descriptions) LIKE ?)"
 	    }.join(' AND '),
 	    *terms.map { |e| [e] * num_or_conds }.flatten
 	  )
 	}
-	  }
 
   scope :sorted_by, lambda { |sort_key|
 	  direction = (sort_key =~ /desc$/) ? 'desc' : 'asc'
@@ -80,7 +79,7 @@ class Listing < ActiveRecord::Base
 
   def self.countries_with_listings
   	arr = ISO3166::Country.all.map {|c| [c.name, c.alpha2 ]}
-  	arr = arr.delete_if{|c| Listing_find_by(country_code: c[1]).nil? }
+  	arr = arr.delete_if{|c| Listing.find_by(country_code: c[1]).nil? }
   	return arr
   end
 end
