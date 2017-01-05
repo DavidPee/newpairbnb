@@ -11,7 +11,7 @@ class ListingsController < ApplicationController
         }
     ) or return
 
-     @listingz = @filterrific.find
+     @listings = @filterrific.find
       respond_to do |format|
       format.html
       format.js
@@ -51,6 +51,6 @@ class ListingsController < ApplicationController
 	end
 
 	def listing_params
-		params.require(:listing).permit(:title, :description, :max_guests, :price, :country_code, tag_ids: [])
+		params.require(:listing).permit(:title, :description, :max_guests, :price, :country_code, tag_ids: [], photos: [])
 	end
 end

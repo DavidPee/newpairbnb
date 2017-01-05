@@ -3,6 +3,8 @@ class Listing < ActiveRecord::Base
   has_many :bookings
   has_many :listing_tags
   has_many :tags, through: :listing_tags
+  serialize :photos, Array
+  mount_uploaders :photos, PhotoUploader
 
   filterrific(
     default_filter_params: { sorted_by: 'created_at_desc' },
@@ -79,7 +81,7 @@ class Listing < ActiveRecord::Base
 
   def self.countries_with_listings
   	arr = ISO3166::Country.all.map {|c| [c.name, c.alpha2 ]}
-  	arr = arr.delete_if{|c| Listing_find_by(country_code: c[1]).nil? }
+  	arr = arr.delete_if{|c| Listing.find_by(country_code: c[1]).nil? }
   	return arr
   end
 end
