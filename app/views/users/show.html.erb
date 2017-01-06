@@ -5,17 +5,17 @@
 
 <h2>Bookings</h2>
 <table>
+	<div class="col-md-12">
+		<tr>
+			<th>Listing Title</th>
+			<th>Start Date</th>
+			<th>End Date</th> 
+			<th>Num Guests</th>
+			<th>Total Price</th>
+			<th>Action</th>
 
-	<tr>
-		<th>Listing Title</th>
-		<th>Start Date</th>
-		<th>End Date</th> 
-		<th>Num Guests</th>
-		<th>Total Price</th>
-		<th>Action</th>
-
-	</tr>
-
+		</tr>
+	</div>
 	<% @bookings.each do |booking| %>
 		<tr>
 			<td><%= link_to booking.listing.title, booking.listing %></td>
