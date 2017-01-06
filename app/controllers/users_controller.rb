@@ -4,6 +4,17 @@ class UsersController < ApplicationController
 		@users = User.all 
 	end
 
+	def create
+   @user = User.new(user_params)
+     if @user.save
+       flash[:notice] = "Sucessfully registered to BnB There!"
+       UserMailer.welcome_email(@user).deliver_now
+       redirect_back_or url_after_create
+     else
+       respond_with( @user, :layout => !request.xhr? )
+     end
+ 	end
+
 	def show
 		@bookings = @user.bookings
 	end
