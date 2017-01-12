@@ -5,7 +5,9 @@ class BookingsController < ApplicationController
 		@booking.listing = @listing
 		if @booking.save
 			ReservationMailer.reservation_email(@user).deliver_now
+			# Job.set(2 days).perform
 			redirect_to current_user
+
 		else
 			@errors = @booking.errors.full_messages
 			render "listings/show"
